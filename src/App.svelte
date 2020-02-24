@@ -1,6 +1,10 @@
 <script>
+    import ImageBanner from "./components/ImageBanner/ImageBanner.svelte";
+    import FrontPageBanner from './images/FrontPageBanner.webp';
+
     let name = "friend";
 </script>
 
-<h1 class="text-teal-700 text-5xl">Hello {name}!</h1>
-
+<ImageBanner src={FrontPageBanner}>
+    Tadre Mølles Venner
+</ImageBanner>
