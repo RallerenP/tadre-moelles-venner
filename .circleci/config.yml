@@ -33,8 +33,6 @@ jobs:
       - image: node:latest
     steps:
       - checkout
-      - attach_workspace:
-          at: /
       - run:
           name: Install and configure dependencies
           command: |
