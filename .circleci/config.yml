@@ -1,13 +1,13 @@
-version: 2.1
+version: 2
 jobs:
   build:
-      docker:
-        - image: circleci/node:latest
-      filters:
-        branches:
-          only: master
-      steps:
-       - add_ssh_keys:
+    docker:
+      - image: circleci/node:latest
+    filters:
+      branches:
+        only: master
+    steps:
+      - add_ssh_keys:
           fingerprints:
             - "ed:49:5f:10:0d:1d:d6:a9:49:95:8c:06:9a:7a:28:06"
       - checkout
@@ -32,5 +32,3 @@ jobs:
       - run:
           name: Run deploy scripts
           command: ../gatsby-deploy.sh
-            
-            
