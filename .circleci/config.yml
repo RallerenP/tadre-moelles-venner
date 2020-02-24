@@ -27,22 +27,15 @@ jobs:
       - run:
           name: Gatsby build site
           command: yarn build
+      - persist_to_workspace:
+          root: public
+          paths: public
           
   gatsby-deploy:
     docker:
       - image: node:latest
     steps:
       - checkout
-      - run:
-          name: Install
-          command: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-          key: dependencies-
-      - run:
-          name: Gatsby build site
-          command: yarn build
       - run:
           name: Install and configure dependencies
           command: |
