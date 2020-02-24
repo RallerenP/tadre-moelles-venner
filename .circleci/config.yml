@@ -44,10 +44,8 @@ jobs:
           fingerprints:
             - "bc:15:84:fe:ff:40:c2:7a:2e:80:4d:79:d7:92:e6:74"
       - run:
-          name: Deploy docs to gh-pages branch
-          command: gh-pages --message "[skip ci] Updates" --dist public
-
-
+          name: SSH Deploy
+          command: scp /project/build ssh -o StrictHostKeyChecking=no rpovwqqi@185.61.154.217/www -p 21098
  
 workflows:
   version: 2
