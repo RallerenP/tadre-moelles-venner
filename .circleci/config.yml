@@ -1,0 +1,36 @@
+version: 2.1
+jobs:
+  build:
+      docker:
+        - image: circleci/node:latest
+      filters:
+        branches:
+          only: master
+      steps:
+       - add_ssh_keys:
+          fingerprints:
+            - "ed:49:5f:10:0d:1d:d6:a9:49:95:8c:06:9a:7a:28:06"
+      - checkout
+      - restore_cache:
+          keys:
+          - dependencies-
+          # fallback to using the latest cache if no exact match is found
+          - dependencies-
+      - run:
+          name: Install
+          command: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: dependencies-
+      - run:
+          name: Gatsby build site
+          command: yarn build
+      - run:
+          name: Prepare shell commands
+          command: cp .scripts/gatsby-deploy.sh ../ && chmod +x ../gatsby-deploy.sh
+      - run:
+          name: Run deploy scripts
+          command: ../gatsby-deploy.sh
+            
+            
