@@ -9,12 +9,6 @@
 </div>
 
 <style>
-    :global(.flex-center) {
-        @apply flex;
-        @apply items-center;
-        @apply justify-center;
-    }
-
     .text-backdrop {
         background-color: rgba(0,0,0,0.5);
     }
