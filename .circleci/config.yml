@@ -27,8 +27,14 @@ jobs:
           name: Gatsby build site
           command: yarn build
       - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "ci-build@rpovlsen.com"
+            git config user.name "ci-build"
+      - run:
           name: Prepare shell commands
           command: cp .scripts/gatsby-deploy.sh ../ && chmod +x ../gatsby-deploy.sh
       - run:
           name: Run deploy scripts
-          command: ../gatsby-deploy.sh
+          command: gh-pages --dist public
