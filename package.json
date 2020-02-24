@@ -1,0 +1,23 @@
+{
+  "name": "tadre-moelles-venner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:RallerenP/tadre-moelles-venner.git",
+  "author": "Rasmus Povlsen <rasmus.alexander.povlsen@hotmail.dk>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html --port 3000",
+    "build": "rm -rf dist && parcel build src/index.html --no-source-maps"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.0.6",
+    "autoprefixer": "^9.7.4",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-svelte": "^4.0.6",
+    "svelte": "^3.19.1",
+    "tailwindcss": "^1.2.0"
+  },
+  "browserslist": [
+    "last 1 chrome versions"
+  ]
+}
