@@ -37,4 +37,4 @@ jobs:
           command: cp .scripts/gatsby-deploy.sh ../ && chmod +x ../gatsby-deploy.sh
       - run:
           name: Run deploy scripts
-          command: gh-pages --dist public
+          command: gh-pages --message "[skip ci] updates" --dist public
