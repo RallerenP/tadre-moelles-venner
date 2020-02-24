@@ -45,7 +45,7 @@ jobs:
             - "bc:15:84:fe:ff:40:c2:7a:2e:80:4d:79:d7:92:e6:74"
       - run:
           name: SSH Deploy
-          command: cd project && scp -P 21098 -o StrictHostKeyChecking=no -r public/. rpovwqqi@185.61.154.217/public_html
+          command: pwd && ls && scp -P 21098 -o StrictHostKeyChecking=no public/. rpovwqqi@185.61.154.217/public_html
  
 workflows:
   version: 2
