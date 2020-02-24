@@ -1,13 +1,18 @@
 version: 2
 
-  workflows:
-    version: 2
-    build:
-      jobs:
-        - build
-        - deploy
-
+workflows:
+  version: 2
   build:
+    jobs:
+      - gatsby-build
+      - gatsby-deploy:
+          requires:
+            - gatsby-build
+          filters:
+            branches:
+              only: master
+
+  gatsby-build:
     docker:
       - image: circleci/node:latest
     filters:
@@ -34,7 +39,7 @@ version: 2
           name: Gatsby build site
           command: yarn build
 
-  docs-deploy:
+  gatsby-deploy:
     docker:
       - image: node:latest
     steps:
@@ -45,7 +50,7 @@ version: 2
           name: Install and configure dependencies
           command: |
             yarn global add gh-pages@2.0.1
-            git config user.email "ci-build@klukas.net"
+            git config user.email "ci-build@rpovlsen.net"
             git config user.name "ci-build"
       - add_ssh_keys:
           fingerprints:
