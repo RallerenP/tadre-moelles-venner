@@ -34,6 +34,16 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install
+          command: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: dependencies-
+      - run:
+          name: Gatsby build site
+          command: yarn build
+      - run:
           name: Install and configure dependencies
           command: |
             yarn global add gh-pages@2.0.1
