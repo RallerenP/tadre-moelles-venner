@@ -17,6 +17,13 @@ jobs:
           - dependencies-
           # fallback to using the latest cache if no exact match is found
           - dependencies-
+     
+          
+  gatsby-deploy:
+    docker:
+      - image: node:latest
+    steps:
+      - checkout
       - run:
           name: Install
           command: yarn install
@@ -27,15 +34,6 @@ jobs:
       - run:
           name: Gatsby build site
           command: yarn build
-      - persist_to_workspace:
-          root: public
-          paths: public
-          
-  gatsby-deploy:
-    docker:
-      - image: node:latest
-    steps:
-      - checkout
       - run:
           name: Install and configure dependencies
           command: |
