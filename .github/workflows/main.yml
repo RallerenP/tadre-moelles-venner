@@ -21,13 +21,19 @@ jobs:
       with:
         registry-url: 'https://npm.pkg.github.com'
     - uses: actions/checkout@master
-    - name: copy file via ssh password
-      uses: appleboy/scp-action@master
+    - name: Copy via ssh
+      uses: garygrossgarten/github-action-scp@v0.5.3
       with:
-        host: ${{ secrets.deploy_host }}
-        key: ${{ secrets.ssh_privatekey }}
-        username: ${{ secrets.deploy_user }}
-        port: ${{ secrets.deploy_port }}
-        source: "dist/*"
-        rm: true
-        target: ${{ secrets.deploy_path }}
+        # Path to the local folder you want to copy.
+        local: 'dist/'
+        # Path on the remote server to copy to.
+        remote: ${{ secrets.deploy_path }}
+        # Hostname or IP address of the server.
+        host: ${{ secrets.deploy_host }} # optional, default is localhost
+        # Username for authentication.
+        username: ${{ secrets.deploy_user }} # optional
+        # Port number of the server.
+        port: ${{ secrets.deploy_port }} # optional, default is 22
+        # File Location or string that contains a private key for either key-based or hostbased user authentication (OpenSSH format)
+        privateKey: ${{ secrets.ssh_privatekey }} # optional
+
