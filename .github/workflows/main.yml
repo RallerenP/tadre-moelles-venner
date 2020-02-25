@@ -11,23 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-    - run: yarn install
-    - run: yarn build
-    - uses: actions/setup-node@v1
-      with:
-        registry-url: 'https://npm.pkg.github.com'
-    - uses: actions/checkout@master
+    - name: yarn stuff
+      run: yarn install && yarn build
     - name: find pwd
       run: 'pwd && ls'
     - name: Copy via ssh
       uses: garygrossgarten/github-action-scp@v0.5.3
       with:
         # Path to the local folder you want to copy.
-        local: '/home/runner/work/tadre-moelles-venner/tadre-moelles-venner/dist'
+        local: '/home/runner/work/tadre-moelles-venner/tadre-moelles-venner/dist/'
         # Path on the remote server to copy to.
         remote: ${{ secrets.deploy_path }}
         # Hostname or IP address of the server.
