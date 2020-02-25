@@ -30,4 +30,4 @@ jobs:
         port: ${{ secrets.deploy_port }}
         source: "dist/*"
         rm: true
-        target: "/home/${{ secrets.deploy_user }}/public_html"
+        target: ${{"/home/" + ${{ secrets.deploy_user }} + "/public_html"}}
