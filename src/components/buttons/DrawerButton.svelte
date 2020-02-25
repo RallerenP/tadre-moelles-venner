@@ -6,7 +6,7 @@
     }
 </script>
 
-<button on:click={handleDrawerToggle}  class="touch-target flex justify-end items-center px-3 md:px-0 md:justify-center hover:bg-purple-800">
+<button on:click={handleDrawerToggle}  class="touch-target z-20 flex justify-end items-center px-3 md:px-0 md:justify-center hover:bg-purple-800">
     {$open ? '<' : '>'}
 </button>
 
