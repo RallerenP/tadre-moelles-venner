@@ -1,0 +1,33 @@
+name: CI
+
+on: 
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: GitHub Action for Yarn
+      uses: Borales/actions-yarn@v2.1.0
+      with:
+        # Yarn command
+        cmd: yarn install && yarn build
+    - name: ssh deploy
+      uses: easingthemes/ssh-deploy@v2.0.8
+      with:
+        # Private Key
+        SSH_PRIVATE_KEY: ${{ secrets.ssh_privatekey }}
+        # Remote host
+        REMOTE_HOST: ${{ secrets.deploy_host }}
+        # Remote user
+        REMOTE_USER: ${{ secrets.deploy_user }}
+        # Remote port
+        REMOTE_PORT: ${{ secrets.deploy_port }}
+        # Source directory
+        SOURCE: dist/# optional, default is 
+        # Target directory
+        TARGET: /home/${{ secrets.deploy_user }}/public_html
