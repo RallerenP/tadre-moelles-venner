@@ -28,6 +28,6 @@ jobs:
         key: ${{ secrets.ssh_privatekey }}
         username: ${{ secrets.deploy_user }}
         port: ${{ secrets.deploy_port }}
-        source: "dist/"
+        source: "dist/*"
         rm: true
         target: "/home/${{ secrets.deploy_user }}/public_html"
