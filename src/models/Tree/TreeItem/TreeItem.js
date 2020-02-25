@@ -27,4 +27,11 @@ export class TreeItem {
     get(index) {
         return this.items[index];
     }
+
+    propagateDepth() {
+        for (let item of this.items) {
+            item.depth = this.depth + 1;
+            item.propagateDepth();
+        }
+    }
 }

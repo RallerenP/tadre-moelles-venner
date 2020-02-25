@@ -1,9 +1,9 @@
 <script>
-    import {getDummyTree} from '../../../models/Tree/Tree';
+    import { getNavTree } from '../../../models/Tree/Tree';
     import DrawerMenuItem from "./MenuItem/DrawerMenuItem.svelte";
     import { flip } from 'svelte/animate';
 
-    let tree = getDummyTree();
+    let tree = getNavTree();
 </script>
 
 <div class="h-full w-full content flex flex-col items-end justify-start">

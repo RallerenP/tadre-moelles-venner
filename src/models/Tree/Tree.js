@@ -1,6 +1,7 @@
 // Top level object for a tree
 
 import { TreeItem } from "./TreeItem/TreeItem";
+import routes from "../../data/routes";
 
 export default class Tree {
     constructor() {
@@ -25,6 +26,13 @@ export default class Tree {
     get(index) {
         return this.items[index];
     }
+
+    propagateDepth() {
+        for (let item of this.items) {
+            item.depth = 0;
+            item.propagateDepth();
+        }
+    }
 }
 
 export const getDummyTree = () => {
@@ -39,6 +47,32 @@ export const getDummyTree = () => {
     tree.addTreeItem(ti1);
     tree.addTreeItem(ti2);
     tree.addTreeItem(ti3);
+
+    return tree;
+};
+
+export const getNavTree = () => {
+    const getRoutes = (arr) => {
+        let routes = [];
+        if (arr) {
+            for (let route of arr) {
+                const ti = new TreeItem(route.displayAs, route.name);
+                ti.items = getRoutes(route.hashes);
+
+                routes.push(ti);
+            }
+        }
+        return routes;
+    };
+
+    let tree = new Tree();
+    let items = getRoutes(routes);
+
+    for (let item of items) {
+        tree.addTreeItem(item);
+    }
+
+    tree.propagateDepth();
 
     return tree;
 };
