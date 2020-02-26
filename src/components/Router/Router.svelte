@@ -6,12 +6,26 @@
     let page;
     let params;
 
-    for (let route of routes) {
+    const setupRouteNode = (route) => {
+        console.log(route.children);
+
         router(route.name, () => {
+
             if (route.component) {
                 page = route.component;
             }
+
         });
+
+        if (route.children) {
+            for (let childRoute of route.children) {
+                setupRouteNode(childRoute);
+            }
+        }
+    }
+
+    for (let route of routes) {
+        setupRouteNode(route);
     }
 
     router.start();

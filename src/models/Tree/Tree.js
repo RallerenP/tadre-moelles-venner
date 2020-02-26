@@ -58,6 +58,7 @@ export const getNavTree = () => {
             for (let route of arr) {
                 const ti = new TreeItem(route.displayAs, route.name);
                 ti.items = getRoutes(route.hashes);
+                ti.items = [...ti.items, ...getRoutes(route.children)];
 
                 routes.push(ti);
             }
@@ -73,6 +74,8 @@ export const getNavTree = () => {
     }
 
     tree.propagateDepth();
+
+
 
     return tree;
 };

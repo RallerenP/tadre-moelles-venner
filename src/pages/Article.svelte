@@ -2,7 +2,7 @@
     export let wide;
 </script>
 
-<div class:wide>
+<div class:wide class="m-8">
     <slot />
 </div>
 

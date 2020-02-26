@@ -4,8 +4,11 @@
     import Article from "../Article.svelte";
     import Kramer from "../../components/Kramer/Kramer.svelte";
     import Page from "../Page.svelte";
+    import Divider from "../../components/Divider.svelte";
+    import TadreMap from "../../components/Map/TadreMap.svelte";
 
-    const source = `
+
+    const about_area = `
 # Om arealet
 
 
@@ -20,6 +23,32 @@ Toiletterne er aflåst i vinterhalvåret.
 Benyttelse af lejrplades aftales med [ROMU](http://tadremølle.dk/). Der kan betales i cafèen.
 `
 
+    const working_hours = `
+# Åbningstider
+
+**13/4 - 17/4:** Påskeåbent fra kl. 11-16<br>
+**1/5 - 30/6:** Lørdage, søn- og helligdage fra kl. 11-16<br>
+**1/7 - 31/7:** Alle dage fra 11-16<br>
+**1/8 - 30/9:** Lørdage og søndage fra kl. 11-16<br>
+**14/10 - 22/10**: Alle dage fra kl. 11-16
+
+## Entre
+
+**Voksne:** 25kr <br>
+**Grupper (*min. 15 personer*):** 15kr<br>
+**Børn og unge (*under 18 år*):** Gratis
+yarn`
+
+    const directions = `
+# Adresse
+
+**Tadre Mølle** ligger i **Elverdamsdalen**, mellem Tølløse og Vester Såby, tæt ved den gamle *Roskile - Holbæk* landevej.
+
+_**Adressen Er:**_<br>
+Tadre Møllevej 23,<br>
+4330 Hvalsø
+
+`
 </script>
 
 <Page>
@@ -28,8 +57,15 @@ Benyttelse af lejrplades aftales med [ROMU](http://tadremølle.dk/). Der kan bet
     </ImageBanner>
 
     <Article>
-        <Kramer {source} />
+        <Kramer source={about_area} />
+        <Divider />
+        <Kramer source={working_hours} />
+        <Divider />
+        <Kramer source={directions} />
+        <TadreMap />
+        <Divider />
     </Article>
+
 </Page>
 
 
