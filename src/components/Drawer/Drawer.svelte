@@ -16,7 +16,7 @@
     <div on:click={handleDrawerClose} transition:fade class="h-full w-full absolute top-0 left-0 bg-black opacity-25"></div>
 {/if}
 
-<div class:open={$open} class:border-r-2={$open} class="flex flex-col shadow-2xl drawer absolute h-full w-0 bg-white border-primary  ">
+<div class:open={$open} class:border-r-2={$open} class="flex z-10 flex-col shadow-2xl drawer absolute h-full w-0 bg-white border-primary  ">
     <div class="spacer z-10 border-primary border-b-2 shadow">
     </div>
     <div class="flex-grow">

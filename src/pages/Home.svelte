@@ -4,20 +4,7 @@
     import Kramer from "../components/Kramer/Kramer.svelte";
     import Article from "./Article.svelte";
 
-    const source = `
-# Om arealet
 
-
-Der er altid fri adgang til at færdes på møllens arealer. Det sker selvfølgelig på eget ansvar.
-Hunde skal føres i snor og har ikke adgang til foldene. Børn skal være ledsagede af voksne i møllen og i foldene.
-Pas på børnene ved vandet.
-
-
-Toiletterne er aflåst i vinterhalvåret.
-
-
-Benyttelse af lejrplades aftales med [ROMU](http://tadremølle.dk/). Der kan betales i cafèen.
-`
 </script>
 
 <ImageBanner src={FrontPageBanner}>
@@ -25,6 +12,5 @@ Benyttelse af lejrplades aftales med [ROMU](http://tadremølle.dk/). Der kan bet
 </ImageBanner>
 
 <Article>
-    <Kramer {source} />
 </Article>
 

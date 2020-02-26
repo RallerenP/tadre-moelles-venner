@@ -2539,6 +2539,11 @@ hash.js@^1.0.0, hash.js@^1.0.3:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
 
+heroicons-ui@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/heroicons-ui/-/heroicons-ui-1.0.0.tgz#54230ddb432ebe7600538bf7b275ee886199d2d2"
+  integrity sha512-oMp4eG3Fo3eI/AEFq13QYCe7gARYq5vMQ1iPcat6W1eJDgv91rbJgYYJZCYcxOJ2qPtHAs26vrRyT2dcKjfUXw==
+
 hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"

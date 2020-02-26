@@ -2,7 +2,7 @@
     export let src;
 </script>
 
-<div class="h-64 w-full flex-center bg-center text-6xl font-bold text-white" style={`background-image: url(${src});`}>
+<div class="h-64 w-full flex-center bg-center text-3xl md:text-6xl font-bold text-white" style={`background-image: url(${src});`}>
     <div class="text-white flex-center relative p-4 rounded text-backdrop">
         <slot />
     </div>
