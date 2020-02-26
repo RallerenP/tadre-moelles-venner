@@ -6,7 +6,7 @@
     let renderer = new kramed.Renderer();
 
     renderer.heading = (text, level) => {
-        let escaped = text.toLowerCase().replace(/[^\w]+/g, '-');
+        let escaped = text.toLowerCase().replace(/[^\w]+/g, '-').replace(/([Åå])/, 'aa');
 
         return `<h${level} class="text-5xl m-2" id="${escaped}">${text}</h${level}>`
 
@@ -14,6 +14,10 @@
     renderer.paragraph = (text) => {
         return `<p class="m-2">${text}</p>`
     };
+
+    renderer.link = (href, title, text) => {
+        return `<a class="text-purple-600 hover:text-purple-500" href=${href}>${text}</a>`;
+    }
 
     let output = kramed(source, {renderer});
 </script>
