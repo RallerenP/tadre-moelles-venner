@@ -14,8 +14,6 @@ jobs:
     - uses: actions/checkout@v2.0.0
     - name: find pwd
       run: 'pwd && ls'
-    - name: validate-license-action
-      uses: datreeio/validate-license-action@v1.0.0
     - name: yarn stuff
       run: yarn install && yarn build
     - name: find pwd
