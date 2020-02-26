@@ -3,6 +3,7 @@
     import FrontPageBanner from '../../images/FrontPageBanner.webp';
     import Article from "../Article.svelte";
     import Kramer from "../../components/Kramer/Kramer.svelte";
+    import Page from "../Page.svelte";
 
     const source = `
 # Om arealet
@@ -21,10 +22,14 @@ Benyttelse af lejrplades aftales med [ROMU](http://tadremølle.dk/). Der kan bet
 
 </script>
 
-<ImageBanner src={FrontPageBanner}>
-    Tadre Mølles Venner
-</ImageBanner>
+<Page>
+    <ImageBanner src={FrontPageBanner}>
+        Tadre Mølles Venner
+    </ImageBanner>
 
-<Article>
-    <Kramer {source} />
-</Article>
+    <Article>
+        <Kramer {source} />
+    </Article>
+</Page>
+
+
