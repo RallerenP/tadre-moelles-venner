@@ -37,7 +37,7 @@ Benyttelse af lejrplades aftales med [ROMU](http://tadremølle.dk/). Der kan bet
 **Voksne:** 25kr <br>
 **Grupper (*min. 15 personer*):** 15kr<br>
 **Børn og unge (*under 18 år*):** Gratis
-yarn`
+`
 
     const directions = `
 # Adresse
